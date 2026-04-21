@@ -10,9 +10,7 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-// ======================
-// ✅ FIXED CORS (PRODUCTION SAFE)
-// ======================
+
 app.use(cors({
   origin: [
     'http://localhost:5173',
@@ -22,8 +20,8 @@ app.use(cors({
   credentials: true
 }));
 
-// IMPORTANT: handle preflight requests
-app.options('*', cors());
+// safe preflight handling
+app.options(/.*/, cors());
 
 // Middleware
 app.use(express.json());
