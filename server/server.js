@@ -4,6 +4,9 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
 
 // CORS Configuration
 const allowedOrigins = [
